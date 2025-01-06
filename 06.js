@@ -29,7 +29,8 @@ applyCoupon(userBCart, coupon);
 
 // 3. 원래 의도대로라면 유저 A와 유저 B 장바구니가 독립적으로 동작해야 하는데, 그렇게 하려면 코드를 어떻게 수정해야 할까요?
 // 코드
-// const userBCart = {};
-// userBCart.items = userACart.items;
 
-// userBCart라는 빈 객체로 따로 만들어준 뒤, userACart의 items 값만 따로 할당해주면 됩니다.
+// let copyDeep1 = JSON.parse(JSON.stringify(userACart));
+// const userBCart = copyDeep1;
+
+// 객체 안에 배열이 존재하기 때문에 JSON 함수를 이용해서 깊은 복사를 진행하면 됩니다
