@@ -16,22 +16,24 @@ Repository를 fork 하여 본인의 repository로 옮긴 후,
 
 ```javascript
 1. let uninitialized;
-console.log(uninitialized); // 결과값 < 빈칸 >
+console.log(uninitialized); // 결과값 < undefined >
+// 변수를 선언만 하고 할당하지 않았기 때문입니다
 
-
-2. < 빈칸 > apple = "사과";
+2. < let > apple = "사과";
 apple = "바나나"; // TypeError: Assignment to constant variable
+// 값을 재할당하기 위해서는 let 키워드나 var 키워드를 사용해야 됩니다.
 
 
 3. let lotto = [3, 8, 13, 19, 21, 32];
-console.log(lotto[3]); // 결과값 < 빈칸 >
-
+console.log(lotto[3]); // 결과값 < 19 >
+// 배열의 index는 0부터 시작하기 때문입니다.
 
 4.
 let mySchedule = "";
-console.log(mySchedule || false); // < 빈칸 >
-console.log(!!mySchedule); // < 빈칸 >
-
+console.log(mySchedule || false); // < false >
+// 빈문자열은 falsy한 값을 갖습니다. 논리합 연산자인데 둘다 false이기 때문에 false를 반환합니다.
+console.log(!!mySchedule); // < false >
+// 논리 부정 연산자를 사용했기 때문에 false -> true -> false의 순으로 진행되어 false를 반환합니다.
 ```
 
 &nbsp;
@@ -48,12 +50,15 @@ console.log(!!mySchedule); // < 빈칸 >
 
 ```javascript
 const junhyun = {
-    // 조건을 충족하는 코드 작성
+  // 조건을 충족하는 코드 작성
+  name: "박민조",
+  age: 26,
+  MBTI: INTP,
 };
 
-console.log(이름이 나오게 콘솔을 실행시켜 주세요.);
-console.log(나이가 나오게 콘솔을 실행시켜 주세요.);
-console.log(MBTI가 나오게 콘솔을 실행시켜 주세요.);
+console.log(junhyun.name);
+console.log(junhyun.age);
+console.log(junhyun.MBTI);
 ```
 
 &nbsp;
@@ -65,12 +70,17 @@ console.log(MBTI가 나오게 콘솔을 실행시켜 주세요.);
 예시
 
 ```javascript
-function 함수명(매개변수) {
+function evenOrOdd(n) {
   // 코드를 작성해 주세요.
+  if (n % 2 === 0) {
+    console.log("짝수");
+  } else {
+    console.log("홀수");
+  }
 }
 
-console.log(함수명(10)); // 결과값 "짝수";
-console.log(함수명(7)); // 결과값 "홀수";
+console.log(evenOrOdd(10)); // 결과값 "짝수";
+console.log(evenOrOdd(7)); // 결과값 "홀수";
 ```
 
 &nbsp;
@@ -83,14 +93,14 @@ console.log(함수명(7)); // 결과값 "홀수";
 예시
 
 ```javascript
-function 함수명(매개변수1, 매개변수2, 매개변수3) {
+function calculator(num1, , num2) {
   // 코드를 작성해주세요.
 }
 
-함수명(3, "+", 6); // 결과값 9
-함수명(11, "-", 6); // 결과값 5
-함수명(6, "*", 3); // 결과값 18
-함수명(15, "/", 3); // 결과값 5
+calculator(3, "+", 6); // 결과값 9
+calculator(11, "-", 6); // 결과값 5
+calculator(6, "*", 3); // 결과값 18
+calculator(15, "/", 3); // 결과값 5
 ```
 
 &nbsp;
@@ -146,8 +156,8 @@ const coupon = { discount: 5000 };
 applyCoupon(userBCart, coupon);
 ```
 
-1.	실행 결과로 userACart.items와 userBCart.items는 각각 어떻게 달라져 있을까요?
+1. 실행 결과로 userACart.items와 userBCart.items는 각각 어떻게 달라져 있을까요?
 
-2.	1번의 결과에 대한 이유를 설명해보세요.
+2. 1번의 결과에 대한 이유를 설명해보세요.
 
-3.	원래 의도대로라면 유저 A와 유저 B 장바구니가 독립적으로 동작해야 하는데, 그렇게 하려면 코드를 어떻게 수정해야 할까요?
+3. 원래 의도대로라면 유저 A와 유저 B 장바구니가 독립적으로 동작해야 하는데, 그렇게 하려면 코드를 어떻게 수정해야 할까요?
